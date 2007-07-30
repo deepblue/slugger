@@ -1,0 +1,12 @@
+<h3 id="comments"><%=@comments.size%> Responses to &#8220;<%=h @page.title%>&#8221;</h3> 
+<ol class="commentlist">
+	<% @comments.each do |comment| %>
+	<li class="alt" id="comment-<%=comment.id%>">
+		<cite><%= comment_author(comment) %></cite> Says:
+		<br />
+		<small class="commentmetadata"><a href="#comment-4" title=""><%= comment.pubdate %></a></small>
+		<p><%= comment.body %></p>
+	</li>
+	<% end %>
+</ol>
+

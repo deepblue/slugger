@@ -1,0 +1,18 @@
+<div class="entry entry-<%= page.id %>">
+	<div class="entrytitle">
+		<h2><a href="<%=page_path(page)%>"><%= page.title %></a></h2> 
+		<h3><%= page.date_modified %></h3>
+	</div>
+	
+	<div class="entrybody">
+		<%= page.content %>
+	</div>
+	
+	<div class="entrymeta">
+		<div class="postinfo">
+			<span class="postedby">Posted by admin</span>
+		</div>
+	
+	  <a href="<%=page_path(page)%>#comments" class="commentslink"> comments  &#187;</a>	
+	</div>
+</div>

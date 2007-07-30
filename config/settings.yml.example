@@ -1,0 +1,9 @@
+index_page_id: 
+side_page_id: 
+property_page_id: 
+list_per_page: 2
+site_title: Slugger
+site_description: Powered by Springnote
+springnote_domain: www.springnote.com
+home_url: http://localhost/
+rss_path: http://localhost/pages.atom

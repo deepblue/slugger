@@ -1,0 +1,11 @@
+Sluuger - Springnote Blog Front-end
+==========================================
+
+Author: Bryan Kang (http://myruby.net)
+
+Dependencies
+ - EdgeRails(>= rev 7247)
+ - Springnote Resource
+ - Rme2day with Hpricot, rest-open-uri
+
+See http://deepblue.springnote.com/pages/391476 (Korean)

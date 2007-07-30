@@ -1,0 +1,9 @@
+<% @pages.each do |page| %>
+	<%= render :partial => 'entry', :locals => {:page => page} %>
+<% end %>
+
+<< 
+<%= link_to "이전 글", :no => @page_no + 1 %>
+| 
+<%= link_to_if (@page_no > 1), "다음 글", :no => @page_no - 1 %>
+>>
