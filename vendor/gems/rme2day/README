@@ -1,0 +1,29 @@
+#
+# Me2day API Library
+#
+# Author: Jung Hyun Kim (mail@ikspres.com)
+# 2007.07.03
+#
+
+(if you don't know me2day yet, visit http://me2day.net)
+
+
+With this library, you can to this.
+  require 'rme2day'
+
+  Person.get('codian').recent_posts.first.comments.last.person.friends.size
+
+Or, 
+
+  codian = Person.get('codian')
+  newest = codian.newest_post
+  newest.print
+  newest.add_comment('Wonderful~~')
+
+    ( 10 minutes later, hmm.. you may be a big fan, or stalker, of codian )
+
+  codian.reload
+  codian.newest_post.print
+
+
+See more usage in lib/rme2day.rb

@@ -1,0 +1,14 @@
+#
+# !! YOU NEED TO EDIT THIS and rename as setup.rb !! 
+# To use your own user id, user key and application key
+# See user profile page for these values in me2day.
+#
+# 
+# DEPRECATED
+#Rme2day::API.set_credential('codian', 'ed870d2b', '4713d502f12345d8e25322b65335d35c')  # deprecated
+#
+# utf8
+#Rme2day::API.setup('codian', 'ed870d2b', '4713d502f12345d8e25322b65335d35c')   
+#
+# euckr
+Rme2day::API.setup('codian', 'ed870d2b', '4713d502f12345d8e25322b65335d35c', 'euckr')
