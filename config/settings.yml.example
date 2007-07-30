@@ -2,6 +2,7 @@ index_page_id:
 side_page_id: 
 property_page_id: 
 list_per_page: 2
+list_per_page_atom: 1
 site_title: Slugger
 site_description: Powered by Springnote
 springnote_domain: www.springnote.com
