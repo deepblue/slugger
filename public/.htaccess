@@ -36,5 +36,5 @@ RewriteRule ^(.*)$ dispatch.cgi [QSA,L]
 # 
 # Example:
 #   ErrorDocument 500 /500.html
-
-ErrorDocument 500 "<h2>Application error</h2>Rails application failed to start properly"
+#   ErrorDocument 500 "<h2>Application error</h2>Rails application failed to start properly"
+ErrorDocument 500 /500.html
