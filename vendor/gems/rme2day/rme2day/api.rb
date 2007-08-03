@@ -19,6 +19,8 @@ module Rme2day
 	           'app_key' => app_key,
 		   'encoding' => encoding
 	       }
+         @@username = nil
+         @@password = nil
 	    end
 
             def config

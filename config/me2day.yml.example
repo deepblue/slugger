@@ -1,3 +1,7 @@
 app_key: 
-user_id: 
-user_key: 
+post:
+  user_id: 
+  user_key: 
+comment:
+  user_id: 
+  user_key: 
