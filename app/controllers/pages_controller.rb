@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  caches_action :index
+  caches_action :index, :cache_path => Proc.new{|controller| controller.send(:pages_url, :no => controller.params[:no] || 1)}
   
   def index
     @page_no, list_per_page = request.format.atom? ? [1, Site.list_per_page_atom] : [(params[:no] || 1).to_i, Site.list_per_page]

@@ -1,0 +1,3 @@
+* svn *
+ * Caches now can handle paginations.
+ * me2day user configuration for post and comments now seperated.
