@@ -1,3 +1,4 @@
 * svn *
+ * Added support for google analytics. Perhaps what we need is the plugin system.
  * Caches now can handle paginations.
  * me2day user configuration for post and comments now seperated.
