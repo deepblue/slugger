@@ -20,6 +20,11 @@ class Page < Springnote::Page
       cont.gsub!(%r<"/pages/(\d+)(.*?)">) do |m|
         $2.blank? && Page.blog_post?($1.to_i) ? m : "\"http://#{Site.springnote_domain}/pages/#{$1}#{$2}\""
       end
+      
+      # Temporary convert #HTML DIV tag's contents into HTML
+      cont.gsub!(%r{<div>.*?<p>#HTML</p>(.*?)</div>}mi) do |m|
+        $1.gsub(/<\/?p[^>]*?>/mi, '').gsub(/<br[^>]*?>/mi, '')
+      end
     end
   end
 
