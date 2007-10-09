@@ -6,6 +6,6 @@ list_per_page_atom: 1
 site_title: Slugger
 site_description: Powered by Springnote
 springnote_domain: www.springnote.com
-home_url: http://localhost/
+home_url: http://localhost
 rss_path: http://localhost/pages.atom
 google_analytics: 
