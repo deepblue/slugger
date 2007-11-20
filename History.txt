@@ -1,4 +1,8 @@
 * svn *
- * Added support for google analytics. Perhaps what we need is the plugin system.
- * Caches now can handle paginations.
- * me2day user configuration for post and comments now seperated.
+ * (07-11-20) prepend http protocol to comment author's link if neeeded.
+ * (07-11-20) Print detailed messages during the initialization process.
+ * (07-11-20) Slugger now distributed with its own api keys.
+ * (07-11-20) API setting files(me2day.yml, springnote.yml) are deleted and now settings.yml contains all configurations.
+ * (07-08-04) Added support for google analytics. Perhaps what we need is the plugin system.
+ * (07-08-04) Caches now can handle paginations.
+ * (07-08-04) me2day user configuration for post and comments now seperated.
