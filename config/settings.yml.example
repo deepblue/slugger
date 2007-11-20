@@ -1,11 +1,22 @@
+# Springnote Authentication
+springnote_user_openid:
+springnote_user_key:  
+
+# Springnote Page Identifiers
 index_page_id: 
 side_page_id: 
 property_page_id: 
-list_per_page: 2
-list_per_page_atom: 1
+
+# Me2day Authentication
+me2day_user_id: slugger
+me2day_user_key: 17480382
+
+# Site Settings
+list_per_page: 5
+list_per_page_atom: 10
 site_title: Slugger
 site_description: Powered by Springnote
-springnote_domain: www.springnote.com
+springnote_domain: username.springnote.com
 home_url: http://localhost
 rss_path: http://localhost/pages.atom
 google_analytics: 

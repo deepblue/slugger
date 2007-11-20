@@ -1,6 +1,4 @@
-class Comment
-  @@configuration = nil
-    
+class Comment    
   class <<self
     def comment_id(page, create = false)
       map = Page.property.json || {}
@@ -14,31 +12,39 @@ class Comment
     end
     
     def create_map(page)
-      setup('post')
+      setup(:post)
       Rme2day::Post.create "\"#{page.title}\":#{Site.home_url}/pages/#{page.id}", '', ''
     end
     
     def find(page)
-      setup('post')
+      setup(:post)
       Rme2day::Comment.parse(Rme2day::API.get_comments(comment_id(page)))
     rescue; []
     end
     
     def create(page, comment)
       cid = comment_id(page, true)
-      body = "(#{Site.site_title}) #{comment['body']} by \"#{comment['author']}\""
-      body += ":#{comment['author_url']}" unless comment['author_url'].blank? 
+      body = "(#{Site.site_title}) #{comment['body']} by #{author_link(comment)}"
       
-      setup('comment')
+      setup(:comment)
       Rme2day::API.create_comment(cid, body)
     end
     
-    def setup(mode = 'post')
-      Rme2day::API.setup(configuration[mode]['user_id'], configuration[mode]['user_key'], configuration['app_key'])
+    def author_link(comment)
+      if comment['author_url'].blank? 
+        comment['author'].to_s
+      else
+        url = comment['author_url']
+        url = 'http://' + url unless url.starts_with?('http')
+        "\"#{comment['author']}\":#{url}"
+      end
     end
-
-    def configuration
-      @@configuration ||= YAML.load(File.read(M2DAY_CONFIGURATION_FILE))
-    end    
+    
+    def setup(mode = :post)
+      user_id =  (mode != :post && Site.me2day_user_id_comment)  ? Site.me2day_user_id_comment  : Site.me2day_user_id
+      user_key = (mode != :post && Site.me2day_user_key_comment) ? Site.me2day_user_key_comment : Site.me2day_user_key
+      
+      Rme2day::API.setup(user_id, user_key, ME2DAY_APP_KEY)
+    end
   end
 end
