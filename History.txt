@@ -1,4 +1,5 @@
 * svn *
+ * (07-11-21) pingback 1.0 request can be received.
  * (07-11-20) prepend http protocol to comment author's link if neeeded.
  * (07-11-20) Print detailed messages during the initialization process.
  * (07-11-20) Slugger now distributed with its own api keys.

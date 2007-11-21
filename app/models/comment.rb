@@ -55,5 +55,5 @@ class Comment
       
       Rme2day::API.setup(user_id, user_key, ME2DAY_APP_KEY)
     end
-  end
+  end  
 end
