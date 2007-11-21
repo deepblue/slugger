@@ -23,11 +23,20 @@ class Comment
     end
     
     def create(page, comment)
+      body = "#{comment['body']} by #{author_link(comment)}"
+      write_comment page, body
+    end
+    
+    def create_pingback(page, uri)
+      body = "Pingback from \"#{uri}\":#{uri}"
+      write_comment page, body
+    end
+    
+    def write_comment(page, body)
       cid = comment_id(page, true)
-      body = "(#{Site.site_title}) #{comment['body']} by #{author_link(comment)}"
       
       setup(:comment)
-      Rme2day::API.create_comment(cid, body)
+      Rme2day::API.create_comment(cid, "(#{Site.site_title}) #{body}")
     end
     
     def author_link(comment)
