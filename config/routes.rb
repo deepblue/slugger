@@ -4,5 +4,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pages, :has_many => :comments
   
   map.home    '/',      :controller => 'pages',  :action => 'index'
-  map.connect 'xmlrpc', :controller => 'xmlrpc', :action => 'api'  
+  map.connect 'xmlrpc', :controller => 'xmlrpc', :action => 'api',  :conditions => {:method => :post}
 end

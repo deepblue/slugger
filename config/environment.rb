@@ -20,7 +20,6 @@ Rails::Initializer.run do |config|
   # config.plugins = %W( exception_notification ssl_requirement )
 
   # Add additional load paths for your own custom dirs
-  config.load_paths += %W(vendor/rails/actionwebservice/lib app/apis)
   Dir.glob("#{RAILS_ROOT}/vendor/gems/*/lib").each {|path| config.load_paths << path }
 
   # Force all environments to use the same logger level

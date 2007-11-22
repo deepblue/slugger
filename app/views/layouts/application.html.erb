@@ -19,6 +19,7 @@
 		<%= render :partial => '/layouts/side' %>
 	</div>
 	<%= render :partial => '/layouts/footer' %>  	
-	<%= render :partial => '/layouts/google_analytics' unless Site.google_analytics.blank? %>	
+	<%= render :partial => '/layouts/google_analytics' unless Site.google_analytics.blank? %>
+	<%= render :partial => '/layouts/syntax_highlighter' %>
 </body>
 </html>
