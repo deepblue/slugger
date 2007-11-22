@@ -23,7 +23,7 @@ class Page < Springnote::Page
       
       # Temporary convert #HTML DIV tag's contents into HTML
       cont.gsub!(%r{<div>.*?<p>#HTML</p>(.*?)</div>}mi) do |m|
-        $1.gsub(/<\/?p[^>]*?>/mi, '').gsub(/<br[^>]*?>/mi, '')
+        CGI.unescapeHTML($1.gsub(/<\/?p[^>]*?>/mi, '').gsub(/<br[^>]*?>/mi, ''))
       end
     end
   end
