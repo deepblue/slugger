@@ -32,6 +32,13 @@ class Comment
       write_comment page, body
     end
     
+    # Message = Struct.new(:tb_url, :title, :excerpt, :url, :blog_name) 
+    def create_trackback(page, message)
+      title = "#{message[:title]} (#{message[:blog_name]})".gsub(/[\"']/, '')
+      body = "Trackback from \"#{title}\":#{message[:url]}  - #{message[:excerpt]}"
+      write_comment page, body      
+    end
+    
     def write_comment(page, body)
       cid = comment_id(page, true)
       

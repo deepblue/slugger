@@ -12,8 +12,9 @@ class PagesController < ApplicationController
   end
   
   def show
-    return render_404 unless Page.blog_post?(params[:id].to_i)    
-    @page = Page.find(params[:id])
+    @page = page(params[:id]) 
+    return render_404 unless @page
+
     @comments = Comment.find(@page)
   end
 end
