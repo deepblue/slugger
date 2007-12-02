@@ -20,11 +20,14 @@ class XmlrpcController < ApplicationController
   end
   
 protected
+  # http://www.hixie.ch/specs/pingback/pingback
   def pingback_ping(source_uri, target_uri)
     RAILS_DEFAULT_LOGGER.info "ping #{source_uri}, #{target_uri}"
     
-    match = target_uri.scan(/\/pages\/(\d+)/)
+    # to prevent duplicated posts in me2day
+    return 0 if source_uri =~ /me2day.net\/#{Site.me2day_user_id}\//
     
+    match = target_uri.scan(/\/pages\/(\d+)/)
     page_id = match[0].to_s.to_i
     return 0x0020 if page_id <= 0 || !Page.blog_post?(page_id)
     
