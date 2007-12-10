@@ -1,0 +1,14 @@
+== 0.3 / 2007-12-10
+* Page get search, with_tags methods.
+* protocol can be changed.
+* Attachment resource added
+* PageImport added
+
+== 0.2.1 / 2007-8-6
+* tiny naming fix for rubygems
+
+== 0.2 / 2007-7-30
+* Public Release
+
+== 0.1  / 2007-07-01
+* Openmaru Devday Release

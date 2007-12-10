@@ -205,6 +205,14 @@ class HashExtTest < Test::Unit::TestCase
     assert_equal 1, h[:first]
   end
 
+  def test_to_options_on_indifferent_preserves_hash
+    h = HashWithIndifferentAccess.new
+    h['first'] = 1
+    h.to_options!
+    assert_equal 1, h['first']
+  end
+
+
   def test_indifferent_subhashes
     h = {'user' => {'id' => 5}}.with_indifferent_access
     ['user', :user].each {|user| [:id, 'id'].each {|id| assert_equal 5, h[user][id], "h[#{user.inspect}][#{id.inspect}] should be 5"}}
@@ -543,6 +551,17 @@ class HashToXmlTest < Test::Unit::TestCase
     blog_xml = <<-XML
       <blog>
         <posts type="array"></posts>
+      </blog>
+    XML
+    expected_blog_hash = {"blog" => {"posts" => []}}
+    assert_equal expected_blog_hash, Hash.from_xml(blog_xml)
+  end
+
+  def test_empty_array_with_whitespace_from_xml
+    blog_xml = <<-XML
+      <blog>
+        <posts type="array">
+        </posts>
       </blog>
     XML
     expected_blog_hash = {"blog" => {"posts" => []}}

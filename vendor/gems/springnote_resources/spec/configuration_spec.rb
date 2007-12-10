@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../lib/springnote'
+require File.dirname(__FILE__) + '/../lib/springnote_resources'
 
 describe Springnote::Configuration do
   before(:each) do

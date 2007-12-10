@@ -120,7 +120,7 @@ module ActiveRecord
       def count(*args)
         column_name, options = @reflection.klass.send(:construct_count_options_from_args, *args)
         if @reflection.options[:uniq]
-          # This is needed becase 'SELECT count(DISTINCT *)..' is not valid sql statement.
+          # This is needed because 'SELECT count(DISTINCT *)..' is not valid sql statement.
           column_name = "#{@reflection.klass.table_name}.#{@reflection.klass.primary_key}" if column_name == :all
           options.merge!(:distinct => true) 
         end
@@ -235,7 +235,9 @@ module ActiveRecord
             :find   => { :from        => construct_from,
                          :conditions  => construct_conditions,
                          :joins       => construct_joins,
-                         :select      => construct_select } }
+                         :select      => construct_select,
+                         :order       => @reflection.options[:order],
+                         :limit       => @reflection.options[:limit] } }
         end
 
         def construct_sql

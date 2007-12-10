@@ -38,6 +38,27 @@ module ActionView
     # Note: This is purely a browser performance optimization and is not meant
     # for server load balancing. See http://www.die.net/musings/page_load_time/
     # for background.
+    #
+    # === Using asset timestamps
+    #
+    # By default, Rails will append all asset paths with that asset's timestamp. This allows you to set a cache-expiration date for the
+    # asset far into the future, but still be able to instantly invalidate it by simply updating the file (and hence updating the timestamp,
+    # which then updates the URL as the timestamp is part of that, which in turn busts the cache).
+    #
+    # It's the responsibility of the web server you use to set the far-future expiration date on cache assets that you need to take 
+    # advantage of this feature. Here's an example for Apache:
+    #
+    # # Asset Expiration
+    # ExpiresActive On
+    # <FilesMatch "\.(ico|gif|jpe?g|png|js|css)$">
+    #   ExpiresDefault "access plus 1 year"
+    # </FilesMatch>
+    #
+    # Also note that in order for this to work, all your application servers must return the same timestamps. This means that they must 
+    # have their clocks synchronized. If one of them drift out of sync, you'll see different timestamps at random and the cache won't
+    # work. Which means that the browser will request the same assets over and over again even thought they didn't change. You can use
+    # something like Live HTTP Headers for Firefox to verify that the cache is indeed working (and that the assets are not being 
+    # requested over and over).
     module AssetTagHelper
       ASSETS_DIR      = defined?(RAILS_ROOT) ? "#{RAILS_ROOT}/public" : "public"
       JAVASCRIPTS_DIR = "#{ASSETS_DIR}/javascripts"
@@ -180,23 +201,10 @@ module ActionView
           joined_javascript_name = (cache == true ? "all" : cache) + ".js"
           joined_javascript_path = File.join(JAVASCRIPTS_DIR, joined_javascript_name)
 
-          if !file_exist?(joined_javascript_path)
-            File.open(joined_javascript_path, "w+") do |cache|
-              javascript_paths = expand_javascript_sources(sources).collect do |source|
-                compute_public_path(source, 'javascripts', 'js', false)
-              end
-
-              cache.write(join_asset_file_contents(javascript_paths))
-            end
-          end
-
-          content_tag("script", "", {
-            "type" => Mime::JS, "src" => path_to_javascript(joined_javascript_name)
-          }.merge(options))
+          write_asset_file_contents(joined_javascript_path, compute_javascript_paths(sources))
+          javascript_src_tag(joined_javascript_name, options)
         else
-          expand_javascript_sources(sources).collect do |source|
-            content_tag("script", "", { "type" => Mime::JS, "src" => path_to_javascript(source) }.merge(options))
-          end.join("\n")
+          expand_javascript_sources(sources).collect { |source| javascript_src_tag(source, options) }.join("\n")
         end
       end
 
@@ -290,28 +298,10 @@ module ActionView
           joined_stylesheet_name = (cache == true ? "all" : cache) + ".css"
           joined_stylesheet_path = File.join(STYLESHEETS_DIR, joined_stylesheet_name)
 
-          if !file_exist?(joined_stylesheet_path)
-            File.open(joined_stylesheet_path, "w+") do |cache|
-              stylesheet_paths = expand_stylesheet_sources(sources).collect do |source|
-                compute_public_path(source, 'stylesheets', 'css', false) 
-              end
-
-              cache.write(join_asset_file_contents(stylesheet_paths))
-            end
-          end
-
-          tag("link", {
-            "rel" => "stylesheet", "type" => Mime::CSS, "media" => "screen",
-            "href" => html_escape(path_to_stylesheet(joined_stylesheet_name))
-          }.merge(options), false, false)
+          write_asset_file_contents(joined_stylesheet_path, compute_stylesheet_paths(sources))
+          stylesheet_tag(joined_stylesheet_name, options)
         else
-          options.delete("cache")
-
-          expand_stylesheet_sources(sources).collect do |source|
-            tag("link", {
-              "rel" => "stylesheet", "type" => Mime::CSS, "media" => "screen", "href" => html_escape(path_to_stylesheet(source))
-            }.merge(options), false, false)
-          end.join("\n")
+          expand_stylesheet_sources(sources).collect { |source| stylesheet_tag(source, options) }.join("\n")
         end
       end
 
@@ -335,7 +325,7 @@ module ActionView
       #
       # ==== Options
       # You can add HTML attributes using the +options+. The +options+ supports
-      # three additional keys for convienence and conformance:
+      # three additional keys for convenience and conformance:
       #
       # * <tt>:alt</tt>  - If no alt text is given, the file name part of the
       #   +source+ is used (capitalized and without the extension)
@@ -471,7 +461,23 @@ module ActionView
           source << "?#{asset_id}" if !asset_id.blank?
         end
 
-        def expand_javascript_sources(sources)          
+        def javascript_src_tag(source, options)
+          content_tag("script", "", { "type" => Mime::JS, "src" => path_to_javascript(source) }.merge(options))
+        end
+
+        def stylesheet_tag(source, options)
+          tag("link", { "rel" => "stylesheet", "type" => Mime::CSS, "media" => "screen", "href" => html_escape(path_to_stylesheet(source)) }.merge(options), false, false)
+        end
+
+        def compute_javascript_paths(sources)
+          expand_javascript_sources(sources).collect { |source| compute_public_path(source, 'javascripts', 'js', false) }
+        end
+
+        def compute_stylesheet_paths(sources)
+          expand_stylesheet_sources(sources).collect { |source| compute_public_path(source, 'stylesheets', 'css', false) }
+        end
+
+        def expand_javascript_sources(sources)
           case
           when sources.include?(:all)
             all_javascript_files = Dir[File.join(JAVASCRIPTS_DIR, '*.js')].collect { |file| File.basename(file).split(".", 0).first }.sort
@@ -499,6 +505,13 @@ module ActionView
 
         def join_asset_file_contents(paths)
           paths.collect { |path| File.read(File.join(ASSETS_DIR, path.split("?").first)) }.join("\n\n")
+        end
+
+        def write_asset_file_contents(joined_asset_path, asset_paths)
+          unless file_exist?(joined_asset_path)
+            FileUtils.mkdir_p(File.dirname(joined_asset_path))
+            File.open(joined_asset_path, "w+") { |cache| cache.write(join_asset_file_contents(asset_paths)) }
+          end
         end
     end
   end

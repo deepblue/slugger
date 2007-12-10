@@ -1,4 +1,6 @@
 module Springnote
+  VERSION = "0.3"
+  
   class Base < ActiveResource::Base
     set_primary_key 'identifier'
     

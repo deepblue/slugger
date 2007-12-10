@@ -5,11 +5,11 @@ module Springnote
   
   class Configuration
     attr_writer :app_key, :user_key, :user_openid
+    SERVER_PROTOCOL = 'https'
     SERVER_URL = "api.springnote.com"
-    # SERVER_URL = "api.local.host:3000"
 
     def site
-      "https://#{username}:#{password}@#{SERVER_URL}/"
+      "#{SERVER_PROTOCOL}://#{username}:#{password}@#{SERVER_URL}/"
     end
     
     def load(file)

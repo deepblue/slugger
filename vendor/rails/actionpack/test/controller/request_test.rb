@@ -306,11 +306,26 @@ class RequestTest < Test::Unit::TestCase
     end
   end
 
+  def test_invalid_http_method_raises_exception
+    set_request_method_to :random_method
+    assert_raises(ActionController::UnknownHttpMethod) do
+      @request.method
+    end
+  end
+
   def test_allow_method_hacking_on_post
     set_request_method_to :post
-    [:get, :put, :delete].each do |method|
+    [:get, :head, :put, :post, :delete].each do |method|
       @request.instance_eval { @parameters = { :_method => method } ; @request_method = nil }
-      assert_equal method, @request.method
+      assert_equal(method == :head ? :get : method, @request.method)
+    end
+  end
+
+  def test_invalid_method_hacking_on_post_raises_exception
+    set_request_method_to :post
+    @request.instance_eval { @parameters = { :_method => :random_method } ; @request_method = nil }
+    assert_raises(ActionController::UnknownHttpMethod) do
+      @request.method
     end
   end
 
@@ -719,6 +734,16 @@ class MultipartRequestParameterParsingTest < Test::Unit::TestCase
     assert_equal 'file.txt', file.original_filename
     assert_equal "text/plain", file.content_type
     assert ('a' * 20480) == file.read
+  end
+
+  uses_mocha "test_no_rewind_stream" do
+    def test_no_rewind_stream
+      # Ensures that parse_multipart_form_parameters works with streams that cannot be rewound
+      file = File.open(File.join(FIXTURE_PATH, 'large_text_file'), 'rb')
+      file.expects(:rewind).raises(Errno::ESPIPE)
+      params = ActionController::AbstractRequest.parse_multipart_form_parameters(file, 'AaB03x', file.stat.size, {})
+      assert_not_equal 0, file.pos  # file was not rewound after reading
+    end
   end
 
   def test_binary_file

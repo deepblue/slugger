@@ -47,7 +47,7 @@ module ActiveRecord
 
           options[:conditions] = conditions
           options[:joins]      = @join_sql
-          options[:readonly]   = finding_with_ambiguous_select?(options[:select])
+          options[:readonly]   = finding_with_ambiguous_select?(options[:select] || @reflection.options[:select])
 
           if options[:order] && @reflection.options[:order]
             options[:order] = "#{options[:order]}, #{@reflection.options[:order]}"
@@ -57,7 +57,7 @@ module ActiveRecord
 
           merge_options_from_reflection!(options)
 
-          options[:select]   ||= '*'
+          options[:select] ||= (@reflection.options[:select] || '*')
 
           # Pass through args exactly as we received them.
           args << options
@@ -133,7 +133,11 @@ module ActiveRecord
         end
 
         def construct_scope
-          { :find => { :conditions => @finder_sql, :joins => @join_sql, :readonly => false } }
+          { :find => {  :conditions => @finder_sql,
+                        :joins => @join_sql,
+                        :readonly => false,
+                        :order => @reflection.options[:order],
+                        :limit => @reflection.options[:limit] } }
         end
 
         # Join tables with additional columns on top of the two foreign keys must be considered ambiguous unless a select

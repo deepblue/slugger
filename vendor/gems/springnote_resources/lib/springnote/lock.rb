@@ -1,5 +1,5 @@
 module Springnote
   class Lock < Base
-    set_prefix      '/pages/:page_id/'
+    set_prefix      '/pages/:relation_is_part_of/'
   end
-end
+end # module Springnote

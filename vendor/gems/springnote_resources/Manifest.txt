@@ -1,0 +1,13 @@
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+Todo.txt
+lib/springnote_resources.rb
+lib/springnote/base.rb
+lib/springnote/configuration.rb
+lib/springnote/lock.rb
+lib/springnote/page.rb
+lib/springnote/revision.rb
+spec/base_spec.rb
+spec/configuration_spec.rb
