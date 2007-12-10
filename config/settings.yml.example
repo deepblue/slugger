@@ -12,11 +12,24 @@ me2day_user_id: slugger
 me2day_user_key: 17480382
 
 # Site Settings
+theme_name: skittlish
 list_per_page: 5
 list_per_page_atom: 10
-site_title: Slugger
-site_description: Powered by Springnote
+title: Slugger
+subtitle: Powered by Springnote
 springnote_domain: username.springnote.com
 home_url: http://localhost
-rss_path: http://localhost/pages.atom
-google_analytics: 
+
+
+##############################################
+# Optional Informations
+
+# Keys for 3rd party web applications.
+#feed_path: 
+#google_analytics: 
+#lemonpen_sid: 
+
+# If you want to separate account for posting and commenting,
+# You should get another me2day account and write the informations here.
+#me2day_user_id_comment: slugger
+#me2day_user_key_comment: 17480382

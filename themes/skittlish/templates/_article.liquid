@@ -1,0 +1,25 @@
+<div class="article">
+
+  <h2 class="title">{{ article | link_to_article }}</h2>
+  <p class="meta">written by {{ article.author.login }} on {{ article.published_at | format_date: 'standard', true }}</p>
+  <div class="body xhtmlEditorBody">
+    {{ article.body }}
+  </div>
+  <div class="footer">
+    <h4 class="meta">posted in: </h4>
+    <p>{{ article | linked_section_list }}</p>
+  {% unless article.tags == empty %}
+    <h4 class="meta">tags: </h4>
+    <p>{{ article | linked_tag_list }}</p>
+  {% endunless %}
+  {% if article.accept_comments %}
+    <h4 class="meta">accepting comments</h4>
+  {% else %}
+    <h4 class="meta">comments are closed</h4>
+  {% endif %}
+  </div>
+
+  <div class="comments">
+    <a href="{{ article.url }}#comments"> comments</a>
+  </div>
+</div>

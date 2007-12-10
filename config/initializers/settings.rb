@@ -3,7 +3,6 @@ SETTINGS_FILE = RAILS_ROOT + '/config/settings.yml'
 raise "설정 파일(#{SETTINGS_FILE})이 필요합니다" unless File.exists?(SETTINGS_FILE)
 SITE_SETTINGS = YAML.load(File.read(SETTINGS_FILE))
 
-
 default_parameters = {
   :springnote_user_openid => "스프링노트에 등록된 OpenID를 입력하세요. 예)http://deepblue.myid.net/",
   :springnote_user_key => "다음 주소에서 사용자키를 발급하세요. https://api.openmaru.com/delegate_key/springnote?app_id=0e7d46d9&openid=", 
@@ -30,7 +29,7 @@ end
 
 
 # intialize Springnote
-require 'springnote'
+require 'springnote_resources'
 
 SPRINGNOTE_APP_KEY = '39115f59a24e96b651a7cf36f086d3ef26ab7c9e'
 Springnote::Base.configuration.set :app_key => SPRINGNOTE_APP_KEY, 

@@ -1,0 +1,44 @@
+{% include 'article' with article %}
+
+{% unless article.comments == empty %}
+<div id="commentslist">
+<h3 id="comments" class="content">Comments</h3>
+<ul>
+{% for comment in article.comments %}
+<li class="comment {{comment.presentation_class}}" id="comment-{{ comment.id }}">
+  <p class="meta"><strong>{{ comment.author_link }}</strong> on <em>{{ comment.created_at | format_date: 'short' }}</em></p>
+  <div class="body">
+  {{ comment.body }}
+  </div>
+</li>
+{% endfor %}
+</ul>
+</div>
+{% endunless %}
+
+<div id="commentform">
+  <h3 class="content">
+    {% if article.accept_comments %}
+      Post a comment
+    {% else %}
+      Comments are closed
+    {% endif %}
+  </h3>
+
+<form method="post" action="{{article | comments_path }}">
+<fieldset>
+<dl>
+<dt><label>Name:</label></dt>
+  <dd><input type="text" id="comment_author" name="comment[author]" value="" /></dd>
+<dt><label>Url:</label></dt>
+  <dd><input type="text" id="comment_author_url" name="comment[author_url]" value="" /></dd>
+<dt><label>Comment:</label></dt>
+  <dd><textarea name="comment[body]" id="comment" cols="100%" rows="10"></textarea></dd>
+</dl>
+</fieldset>
+
+  <p><input name="submit" type="submit" id="submit" value="Submit Comment" /></p>
+</form>
+
+
+</div>

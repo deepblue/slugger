@@ -1,4 +1,27 @@
-class Comment    
+class Rme2day::Comment
+  liquid_methods :id, :author_link, :created_at, :body, :presentation_class
+  
+  def id
+    object_id
+  end
+  
+  def author_link
+    c = split
+    c.length > 1 ? c.last : nickname
+  end
+  
+  def created_at
+    Time.parse(pubdate)
+  end
+  
+  def split
+    body.split(' by ')
+  end
+  
+  def presentation_class
+    'by-guest'  #  "by-author", "by-user"
+  end
+    
   class <<self
     def comment_id(page, create = false)
       map = Page.property.json || {}
@@ -18,8 +41,8 @@ class Comment
     
     def find(page)
       setup(:post)
-      Rme2day::Comment.parse(Rme2day::API.get_comments(comment_id(page)))
-    rescue; []
+      parse(Rme2day::API.get_comments(comment_id(page)))
+    # rescue; []
     end
     
     def create(page, comment)
@@ -43,7 +66,7 @@ class Comment
       cid = comment_id(page, true)
       
       setup(:comment)
-      Rme2day::API.create_comment(cid, "(#{Site.site_title}) #{body}")
+      Rme2day::API.create_comment(cid, "(#{Site.title}) #{body}")
     end
     
     def author_link(comment)
@@ -64,3 +87,5 @@ class Comment
     end
   end  
 end
+
+Comment = Rme2day::Comment

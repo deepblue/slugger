@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+{{ '/feed/atom.xml' | assign_to: 'global_feed' }}
+{{ '/feed/all_comments.xml' | assign_to: 'global_comments_feed' }}
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  {{ site.title }} 
+  {% if site.current_section %}
+    - {{ site.current_section.name }}
+  {% endif %}
+  {% if article %}
+    - {{ article.title }}
+  {% endif %}
+</title>
+{{ 'base' | stylesheet }}
+{{ 'app' | javascript }}
+<!--[if IE]>
+{{ 'base_ie' | stylesheet }}
+<![endif]-->
+{{ site | header }}
+</head>
+
+<body class="fixed orange">
+<script type="text/javascript">loadPreferences()</script> 
+
+<div id="wrapper">
+
+<div id="header" class="clearfix">
+<div id="title" class="clearfix">
+  <h1><a href="/">{{ site.title }}</a></h1>
+</div>
+<h2>Sections</h2>
+<ul id="menu">
+  <li class="selected">{{ site.subtitle }}</li>
+</ul>
+</div>
+
+<div id="contentwrapper" class="clearfix">
+
+<div id="content">
+  
+  <div id="innerwrapper">
+
+<!-- <div class="article">
+  <div class="body">
+  <h2>Skittlish Tips'n'Tricks</h2>
+  <ul>
+    <li>Change the classes for the body tag to set your default site style. also change these in the app.js file (line 66).</li>
+    <li>Remove the scripts and the #options div if you don't want the option switcher.</li>
+    <li>The top menu shows the home section and the sections that are not blogs.</li>
+    <li>Email me at <a href="mailto:evil@che.lu">evil@che.lu</a> if you have any questions.</li>
+    <li>Happy hacking!</li>
+  </ul>
+  </div>
+</div> -->
+
+{{ content_for_layout }}
+
+  </div>
+
+</div>
+
+<div id="sidebar">
+
+<div id="search" class="boxy short">
+  <h3>Search</h3>
+  <form method="get" action="/pages/search">
+    <fieldset>
+      <input class="text" type="text" id="q" value="" name="q"/>
+    </fieldset>
+  </form>
+</div> 
+
+<div class="boxy tall minor">
+  {{ site.sidebar.body}}
+</div>
+ 
+</div>
+
+</div>
+
+<div id="options">
+  <h2>Options:</h2>
+  <h3>Size</h3>
+  <ul id="option_size">
+    <li id="option_size_fixed"   class="fixed" ><a><span>fixed </span></a></li>
+    <li id="option_size_fluid"   class="fluid" ><a><span>fluid </span></a></li>
+  </ul>
+  <h3>Colors</h3>
+  <ul id="option_color">
+    <li id="option_color_orange" class="orange"><a><span>orange</span></a></li>
+    <li id="option_color_blue"   class="blue"  ><a><span>blue  </span></a></li>
+    <li id="option_color_green"  class="green" ><a><span>green </span></a></li>
+    <li id="option_color_pink"   class="pink"  ><a><span>pink  </span></a></li>
+    <li id="option_color_cyan"   class="cyan"  ><a><span>cyan  </span></a></li>
+    <li id="option_color_red"    class="red"   ><a><span>red   </span></a></li>
+    <li id="option_color_violet" class="violet"><a><span>violet</span></a></li>
+  </ul>
+</div>
+
+<div id="footer">
+<p>Copyright &copy; 2006, Your Name. Valid <a href="http://validator.w3.org/check/referer">XHTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>.</p>
+<p>Using <a href="http://evil.che.lu/projects/skittlish">skittlish</a> on <a href="http://myruby.net/pages/391476">Slugger</a>.</p>
+</div>
+
+</div>
+
+{{ site | footer }}
+</body>
+
+</html>

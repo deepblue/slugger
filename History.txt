@@ -1,4 +1,7 @@
 * svn *
+ * (07-12-11) Lemonpen support added.
+ * (07-12-11) Finally slugger get the THEMEs. you can reuse mephisto's themes with a little effort.
+ * (07-12-11) Added /pages/search.
  * (07-11-22) Source code highligher script added. Thanks to Alan Kang.
  * (07-11-22) Pingback implatation changed. Instead of ActionWebservice framework I use xmlrpc library. It's because some compatibility issues between edgerails and ActionWebservice.
  * (07-11-21) pingback 1.0 request can be received.

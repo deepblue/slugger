@@ -1,0 +1,28 @@
+= ABOUT
+
+* Skittlish 0.4.X requires at least mephisto 0.7.3. Get mephisto from:
+  http://mephistoblog.com
+
+* Check out the skittlish homepage for new versions:
+  http://evil.che.lu/projects/skittlish
+
+= INSTALL
+
+* download a zipped version:
+  http://evil.che.lu/projects/skittlish/
+
+* or get the latest version from svn:
+  svn co svn://evil.che.lu/evilchelu/svn/projects/themes/skittlish/trunk /blah/blah/themes/site-1/skittlish 
+
+= LICENSE
+
+* Design
+  Copyright (c) 2006 Damien Tanner
+  http://iamrice.org/
+
+* Code, mephisto theme 
+  Copyright (c) 2006 Cristi Balan
+  http://evil.che.lu/
+
+* Licensed under a "Creative Commons Attribution-Noncommercial-Share Alike 3.0 License".
+  http://creativecommons.org/licenses/by-nc-sa/3.0/

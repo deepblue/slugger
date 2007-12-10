@@ -1,0 +1,6 @@
+<div class="page">
+<h1 class="header">{{ section.earliest_month | date: '%B %Y' }}</h1>
+  {% for article in articles %}
+    {% include 'entry_overview' %}
+  {% endfor %}
+</div>

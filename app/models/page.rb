@@ -1,8 +1,11 @@
-class Page < Springnote::Page
+class Page < Springnote::Page    
   class <<self    
     %w(index side property).each do |key|
       class_eval <<-EOS
-        def #{key}; @#{key}_page ||= find(Site.#{key}_page_id) end
+        def #{key}(reload = false)
+          return @#{key}_page if !reload && @#{key}_page
+          @#{key}_page = find(Site.#{key}_page_id)
+        end
       EOS
     end
 
@@ -11,8 +14,36 @@ class Page < Springnote::Page
     end
     
     def blog_post?(id)
-      list.include?(id)
-    end    
+      list.include?(id.to_i)
+    end
+  end
+  
+  liquid_methods :id, :title, :body, :tags, :published_at, :accept_comments, :comments_count, :comments, :url
+  
+  def blog_post?
+    Page.blog_post?(id)
+  end
+  
+  def published_at
+    date_modified
+  end
+  
+  def accept_comments
+    true
+  end
+  
+  def comments_count
+    comments.size
+  rescue; 0
+  end
+  
+  def comments
+    @comments ||= Comment.find(self)
+  rescue; []
+  end
+  
+  def url
+    "/pages/#{id}"
   end
   
   def content
@@ -26,8 +57,12 @@ class Page < Springnote::Page
         CGI.unescapeHTML($1.gsub(/<\/?p[^>]*?>/mi, '').gsub(/<br[^>]*?>/mi, ''))
       end
     end
-  end
+  end  
+  alias_method :body, :content  
 
+  ########################
+  # JSON Support
+  
   def json
     ActiveSupport::JSON.decode(source.to_s.gsub(/<[^>]*?>/,'').gsub(/&.*?;/, ''))
   end
@@ -35,5 +70,5 @@ class Page < Springnote::Page
   def json=(prop)
     self.source = prop.to_json
     save
-  end
+  end  
 end

@@ -1,0 +1,9 @@
+{% unless articles == empty %}
+<ul class="list">
+{% for article in articles %}
+  <li>{{ article | link_to_article }} <em>({{ article.published_at | format_date: 'mdy', true }})</em></li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No articles found.</p>
+{% endunless %}

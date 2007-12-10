@@ -1,0 +1,27 @@
+* SVN
+
+* 0.4
+
+* fix some ie bugs
+
+* add styles for comments posted by the author
+
+* extract short_articles include for archive, tag and search
+
+* add anchor to comments link
+
+* use mephisto filters for article tag and section lists
+
+* show decent text when comments are closed
+
+* don't use the xhtml 1.1 doctype
+
+* ensure that the sidebar doesn't drop
+
+* add "minor" class to allow smaller sidebar items
+
+  <div class="boxy tall minor">...
+
+* use magic 76% as the font size
+
+* 0.3

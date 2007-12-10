@@ -1,0 +1,51 @@
+/* blue theme.css */
+
+/* backgrounds: since the content area is white, it's best 
+to choose something darker. also, note the background image
+in doc_container. if you change this color, either remove
+the image, or replace it with a gradient that matches. */
+
+body{
+  background-color:#002057;       /* dark blue */
+}
+.doc-container {
+  background-color:#0049c8;       /* blue */
+  background-image: url(/themes/micro/images/bottom-gradient-blue.jpg);
+}
+
+/* link and text colors */
+
+.commentsblock #submit,
+#sidebar h3,
+#sidebar h3 a,
+.commentsblock h3,
+.commentsblock h3 a,
+.commentsblock h4,
+.content h1,
+.content h1 a,
+.dropcap,
+.entrytitle h1 a,
+.entrytitle h2 a {
+  color: #002057;                 /* dark blue */
+}
+
+a,
+body{
+	color:#333;                  /* dark grey */
+}
+a:hover{
+ 	color:#0049c8;                  /* blue */
+}
+#logo h1 a,
+#logo h3 a,
+#logo h1 a:hover,
+#logo h3 a:hover {
+	color:#fff;                     /* white */
+}
+#sform input,
+.grey,
+.soft,
+.caption {
+  color:#555;                     /* grey */
+}
+

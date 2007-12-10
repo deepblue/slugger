@@ -21,7 +21,19 @@ class LiquidView
     assigns.merge!(local_assigns)
     
     liquid = Liquid::Template.parse(template)
-    liquid.render(assigns, :filters => [@action_view.controller.master_helper_module], :registers => {:action_view => @action_view, :controller => @action_view.controller})
+    ret = liquid.render(assigns, :filters => [@action_view.controller.master_helper_module], :registers => {:action_view => @action_view, :controller => @action_view.controller})
+    
+    #Just add the errors to the logger...Simple
+    if RAILS_DEFAULT_LOGGER && RAILS_DEFAULT_LOGGER.debug?
+      msg = ""
+      liquid.errors.each do |exception|
+        msg << "[Liquid Error] #{exception.message} trace: \n#{exception.backtrace.join("\n")}"
+        msg << "\n\n"
+      end
+      RAILS_DEFAULT_LOGGER.debug msg
+    end
+    
+    ret
   end
 
 end

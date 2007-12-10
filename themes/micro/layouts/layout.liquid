@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>
+  {{ site.title }}{% if section.id == 1 %}, {{ site.subtitle }}
+    {% else %}
+      {% if article %} 
+      / {{ article.title }}
+        {% if article.tags.size > 0 %}  
+          ({% for tag in article.tags %}{% if forloop.index > 1 %}, {% endif %}{{ tag }}{% endfor %})
+        {% endif %}
+      {% else %}
+        {% if section %}/ {{ section.name }}{% endif %}
+      {% endif %}
+  {% endif %}
+</title>
+  {{ 'equalize' | stylesheet }}
+  {{ 'layout' | stylesheet }}
+  {{ 'red' | stylesheet }}
+
+  {{ site | header }}
+</head>
+<body>
+
+  <div id="custom-doc" class="yui-t7">
+    <div class="doc-container">
+     <div id="hd">
+   		 <div id="logo">
+   		  {% if mode == 'single' %}
+          <h1><a href="/">{{ site.title }}</a></h1>
+        {% else %}
+          <h3><a href="/">{{ site.title }}</a></h3>
+        {% endif %}
+          <h5 class="description"><a href="/">{{ site.subtitle }}</a></h5>
+       </div>
+       {% comment %}
+       <!-- Delete the comment blocks if you'd like to display section tabs -->
+        {% if site.sections.size > 1 %}
+  		    <div id="sections" class="tabs">
+           {% for section in site.sections %} 
+               {% unless section.is_home  %}
+               <a href="{{section.url}}" title="{{section.name}}" {% if section.current %}class="selected"{% endif %}>{{section.name || downcase}}</a>
+               {% endunless %}
+           {% endfor %}
+    		  </div>
+    	  {% endif %}
+        {% endcomment %}
+
+    	  <form method="get" id="sform" action="/pages/search">
+        	  <input type="text" id="q" value="" name="q" size="15" class="input" />
+           <input type="image" value="submit" src="/themes/micro/images/icon-find.gif" class="button" />          
+        </form>
+        <div class="clear"></div>
+     </div>
+     <div id="bd">
+  	<div class="yui-g">
+  	  {{ content_for_layout }}
+    </div>
+    <div id="sidebar" class="yui-g">
+        <div class="page">
+		   {{ site.sidebar.body}}
+        </div>
+  	</div>
+     <div id="ft">
+       <p class="backtotop"><a href="#hd">back to top</a></p>
+       <p class="notice"><a href="http://micro.seaofclouds.com">micro</a> theme by <a href="http://www.seaofclouds.com">seaofclouds</a>, and powered with <a href="http://myruby.net/pages/391476">Slugger</a></p>
+     </div>
+     </div>
+  </div>
+
+  {{ site | footer }}
+</body>
+</html>

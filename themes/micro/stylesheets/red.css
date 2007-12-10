@@ -1,0 +1,53 @@
+/*********************************************************
+ +red theme
+ ********************************************************/
+
+/* backgrounds: since the content area is white, it's best 
+to choose something darker. also, note the background image
+in doc_container. if you change this color, either remove
+the image, or replace it with a gradient that matches. */
+
+body{
+  background-color:#500;       /* dark red */
+}
+.doc-container {
+  background-color:#900;       /* deep red */
+  background-image: url(/themes/micro/images/bottom-gradient-red.jpg);
+}
+
+/* link and text colors */
+
+.commentsblock #submit,
+#sidebar h3,
+#sidebar h3 a,
+.commentsblock h3,
+.commentsblock h3 a,
+.commentsblock h4,
+.content h1,
+.content h1 a,
+.dropcap,
+.entrytitle h1 a,
+.entrytitle h2 a {
+  color: #400;                 /* dark red */
+}
+
+a,
+body{
+	color:#300;                  /* black */
+}
+a:hover{
+ 	color:#900;                  /* bright red */
+}
+#logo h1 a,
+#logo h3 a,
+#logo h1 a:hover,
+#logo h3 a:hover {
+	color:#fff;                     /* white */
+}
+#sform input,
+.grey,
+.soft,
+.caption {
+  color:#555;                     /* grey */
+}
+

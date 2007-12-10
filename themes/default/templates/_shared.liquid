@@ -1,0 +1,29 @@
+{% for article in articles %}
+<div class="entry entry-{{ article.id }}">
+	<div class="entrytitle">
+		<h2>{{ article | link_to_article }}</h2> 
+		<h3>{{ article.published_at | format_date: 'mdy', true }}</h3>
+	</div>
+	<div class="entrybody xhtmlEditorBody">
+		{{ article.body }}
+	</div>
+	
+	<div class="entrymeta">
+  	<div class="postinfo">
+		<span class="postedby">Posted by admin</span>
+		<span class="filedto">Trackback Address: {{ article || trackback_url }}</span>
+	</div>
+	
+	{% unless articles.size == 1 %}
+	  {% if article.accept_comments %}<a href="{{ article.url }}#comments" class="commentslink">comments &#187;</a>{% endif %}
+	{% endunless %}
+	</div>
+</div>
+{% endfor %}
+
+{% if articles.size == 1 %}
+  <div class="commentsblock">
+    {% include 'comments' %}
+  </div>
+{% else %}
+{% endif %}

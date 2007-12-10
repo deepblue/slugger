@@ -1,0 +1,1 @@
+Theme.install_public_symlink
