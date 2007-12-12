@@ -1,0 +1,15 @@
+<h1>Search results for <em>"{{search_string}}"</em></h1>
+  <ul class="dates">
+  {% for article in articles %}
+  <li>
+      <span class="date">{{article.published_at | date: '%m.%d.%y' }}</span>  
+      {{ article | link_to_article }} posted in 
+      {% for section in article.sections %}
+      {{section | link_to_section }}
+    {% endfor %}
+  </li>
+  {% endfor %}
+</ul>
+<div class="clear"></div>
+
+

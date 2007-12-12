@@ -1,0 +1,19 @@
+{% for article in articles %}
+  {% if forloop.index < 10 %}
+      <div class="post{% if forloop.first %} first{% endif %}">
+        <div class="post-title"><h1>{{ article | link_to_article }}</h1></div>
+        <p class="auth">Posted by {{ article.author.login }},
+		<SPAN class="typo_date" title="{{ article.published_at }}">{{ article.published_at }}</SPAN> </p>
+        <div class="post-body">
+        {{ article.body }}
+        </div>
+        <p class="meta">
+          {{ article | link_to_comments }} |
+          Filed Under: {% for section in article.sections %} {{ section | link_to_section }} {% endfor %} |
+          Tags: {% for tag in article.tags %}{{ tag | link_to_tag }} {% endfor %}
+        </p>
+      </div>
+  {% endif %}
+{% endfor %}
+		
+<div class="clear"></div>

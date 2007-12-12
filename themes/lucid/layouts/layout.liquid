@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{{site.title}}&mdash;{{site.subtitle}}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{{ 'master' | stylesheet }}
+{{ 'color' | stylesheet }}
+{{ 'prototype' | javascript }}
+{{ 'effects' | javascript }}
+{{ 'typo' | javascript }}
+{{ 'lucid' | javascript }}
+  <!-- {{ head.feed }} -->
+</head>
+<body class="c-ms cs0 fixed">
+  <div id="wrapper">
+    <div id="w2">
+      <div class="clearfix" id="w3">
+        <div class="clearfix" id="header">
+          <div id="logo">
+            <h1><a href="/">{{ site.title }}</a></h1>
+            <h2>{{ site.subtitle }}</h2>
+          </div>
+          <div id="search">
+            <form method="get" id="sform" action="/pages/search">
+              <div class="searchimg"></div>
+              <input type="text" id="q" value="" name="q" size="15" />
+            </form>
+          </div>
+          <ul id="preferences">
+            <li><a href="javascript:;" id="layout-options" title="Layout and color options">Layout and color options</a></li>
+            <li><a href="javascript:;" id="layout-fixed" title="Switch to fixed layout">Fixed</a></li>
+            <li><a href="javascript:;" id="layout-fluid" title="Switch to fluid layout">Fluid</a></li>
+          </ul>
+          <div id="theme-panel" style="display:none;">
+            <ul>
+              <li><a href="javascript:;" id="cs0_swatch" title="Ruby color set">Ruby color set</a></li>
+              <li><a href="javascript:;" id="cs1_swatch" title="Mint color set">Mint color set</a></li>
+              <li><a href="javascript:;" id="cs2_swatch" title="Bleached color set">Bleached color set</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="content">
+          <div id="maincol">
+           <div id="mc2">
+           {{ content_for_layout }}
+           </div>
+          </div>
+          <div id="subcol">
+            <div class="bt"><div></div></div>
+            <div id="sc2">
+              <div class="sidebar-node">
+                <h3>Recently</h3>
+                <ul class="dates">
+                {% for article in articles %}
+                  <li><a href="{{ article.url }}"><span class="date">{{ article.published_at | strftime: '%m.%y' }}</span> {{ article.title }}</a></li>
+                {% endfor %}
+                </ul> 
+              </div>
+              <div class="sidebar-node">
+                <h3>Categories</h3>
+                    <ul class="counts">
+                    {% for section in site.sections %}
+                      <li><a href="{{ section.url }}">{{ section.name }}</a> ({{ section.articles_count }}) </li>
+                    {% endfor %}
+                    </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="subfoot">
+          <div class="bb">
+           <div></div>
+          </div>
+        </div>
+        <div id="footer">
+  <p>
+    <a href="http://validator.w3.org/check/referer" title="Validates this page">XHTML</a>,
+    <a href="http://jigsaw.w3.org/css-validator/check/referer?warning=no&amp;profile=css2" title="Validates the CSS on this page.">CSS</a>.
+    Template by <a href="http://www.soniciq.com" title="SonicIQ - Website Development">SonicIQ</a>.
+    Ported to Mephisto by <a href="http://www.cvreg.org" title="Central Virginia Ruby User's Group">CVREG</a>.
+    Powered with <a href="http://myruby.net/pages/391476">Slugger</a>
+  </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
