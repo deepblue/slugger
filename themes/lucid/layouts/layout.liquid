@@ -10,6 +10,7 @@
 {{ 'typo' | javascript }}
 {{ 'lucid' | javascript }}
   <!-- {{ head.feed }} -->
+  {{ site | header }}
 </head>
 <body class="c-ms cs0 fixed">
   <div id="wrapper">
@@ -48,22 +49,7 @@
           <div id="subcol">
             <div class="bt"><div></div></div>
             <div id="sc2">
-              <div class="sidebar-node">
-                <h3>Recently</h3>
-                <ul class="dates">
-                {% for article in articles %}
-                  <li><a href="{{ article.url }}"><span class="date">{{ article.published_at | strftime: '%m.%y' }}</span> {{ article.title }}</a></li>
-                {% endfor %}
-                </ul> 
-              </div>
-              <div class="sidebar-node">
-                <h3>Categories</h3>
-                    <ul class="counts">
-                    {% for section in site.sections %}
-                      <li><a href="{{ section.url }}">{{ section.name }}</a> ({{ section.articles_count }}) </li>
-                    {% endfor %}
-                    </ul>
-              </div>
+					   {{ site.sidebar.body}}
             </div>
           </div>
         </div>
@@ -84,4 +70,5 @@
       </div>
     </div>
   </div>
+  {{ site | footer }}
 </body>

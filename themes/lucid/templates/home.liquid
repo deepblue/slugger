@@ -4,7 +4,7 @@
         <div class="post-title"><h1>{{ article | link_to_article }}</h1></div>
         <p class="auth">Posted by {{ article.author.login }},
 		<SPAN class="typo_date" title="{{ article.published_at }}">{{ article.published_at }}</SPAN> </p>
-        <div class="post-body">
+        <div class="post-body xhtmlEditorBody">
         {{ article.body }}
         </div>
         <p class="meta">

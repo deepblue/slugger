@@ -687,3 +687,572 @@ td {
 .post .meta strong {
 	font-weight: normal;
 }
+
+/*--------------------------------------------------------------------------------------------------------
+내용 CSS
+--------------------------------------------------------------------------------------------------------*/
+.xhtmlEditorBody p {
+	margin: 0;
+	padding:0;
+	line-height:2.0em;
+}
+.xhtmlEditorBody string {
+	margin:0;
+	padding:0;
+	line-height:2.0em;
+	background:#ffff00;
+}
+.xhtmlEditorBody em {
+	margin:0;
+	padding:0;
+	line-height:2.0em;
+	font-style:normal;
+}
+.xhtmlEditorBody em.italic {
+	margin:0;
+	padding:0;
+	line-height:2.0em;
+	font-style:italic !important;
+}
+.xhtmlEditorBody em.italic * {
+	margin:0;
+	padding:0;
+	line-height:2.0em;
+	font-style:italic !important;
+}
+.xhtmlEditorBody em.hilight {
+	margin:0;
+	padding:0;
+	line-height:2.0em;
+}
+.xhtmlEditorBody em.underline {
+	margin:0;
+	padding:0;
+	line-height:2.0em;
+	text-decoration:underline;
+}
+
+.xhtmlEditorBody span.strike {
+	margin:0;
+	padding:0;
+	line-height:2.0em;
+	text-decoration:line-through;
+}
+
+body.xhtmlEditorBody span.super {
+	font-size:0.60em;
+	position:relative;
+	top:-0.4em;
+}
+div.xhtmlEditorBody span.super {
+	font-size:0.9em;
+	position:relative;
+	top:-0.4em;
+}
+/*********************************************************/
+body.xhtmlEditorBody span.sub {
+	font-size:0.60em;
+	position:relative;
+	bottom:-0.4em;
+}
+div.xhtmlEditorBody span.sub {
+	font-size:0.9em;
+	position:relative;
+	bottom:-0.4em;
+}
+
+.xhtmlEditorBody sub {
+	font-size:0.75em;
+	position:relative;
+	bottom:-0.5em;
+	line-height:2.6em;
+}
+.xhtmlEditorBody sup {
+	font-size:0.75em;
+	position:relative;
+	top:-0.2em;
+	line-height:1.8em;
+}
+.xhtmlEditorBody hr {
+	margin: 0 0 1.835em 0;
+	position:relative;
+	bottom:-0.9em;
+	background:none;
+	border:none;
+	border-top:1px solid #000;
+}
+/*********************************************************/
+.xhtmlEditorBody h1 {
+	margin:0;
+	margin-bottom:0.5em;
+	padding:0;
+	font-size: 2em;
+	line-height:1.27em;
+	color:#223d67;
+	border-bottom:5px solid #425e89;
+}
+.xhtmlEditorBody h2 {
+	margin:0;
+	margin-bottom:0.5em;
+	padding:0;
+	font-size: 1.8em;
+	line-height:1.55em;
+	color:#223d67;
+	border-bottom:4px solid #425e89;
+}
+.xhtmlEditorBody h3 {
+	margin:0;
+	margin-bottom:10px;
+	padding:0;
+	font-size: 1.5em;
+	line-height:1.95em;
+	color:#223d67;
+	border-bottom:3px solid #425e89;
+}
+.xhtmlEditorBody h4 {
+	margin:0;
+	margin-bottom:10px;
+	padding:0;
+	font-size: 1.3em;
+	line-height:2.3em;
+	color:#223d67;
+	border-bottom:2px solid #425e89;
+}
+.xhtmlEditorBody h5 {
+	margin:0;
+	margin-bottom:10px;
+	padding:0;
+	font-size: 1.13em;
+	line-height:2.75em;
+	color:#223d67;
+	border-bottom:1px solid #425e89;
+}
+.xhtmlEditorBody h6 {
+	margin:0;
+	padding:0;
+	font-size: 1em;
+	line-height:1.92em;
+	color:#223d67;
+	border-bottom:1px solid #425e89;
+}
+/**************************************************************/
+.xhtmlEditorBody table.datatable {
+	width:98%;
+	margin:2em 0;
+	border-collapse: collapse;
+	font-size:1em;
+}
+.xhtmlEditorBody table.datatable caption {
+	margin:0;
+	padding:0;
+	text-align:left;
+	line-height:2.1em;
+}
+.xhtmlEditorBody table.datatable tr {
+	border:1px solid #000000;
+}
+.xhtmlEditorBody table.datatable th {
+	margin:0;
+	padding:0 3px;
+	line-height:1.9em;
+	border:1px solid #000000;
+	background:#E7E7E7;
+	font-weight:lighter;
+}
+.xhtmlEditorBody table.datatable td {
+	margin:0;
+	padding:0 3px;
+	line-height:1.9em;
+	overflow:hidden;
+	border:1px solid #000000;
+	background:#fff;
+}
+
+
+
+
+
+
+
+.xhtmlEditorBody table.datatable p {
+	margin: 0;
+	padding:0;
+	line-height:1.8em;
+}
+.xhtmlEditorBody table.datatable string {
+	margin:0;
+	padding:0;
+	line-height:1.8em;
+	background:#ffff00;
+}
+.xhtmlEditorBody table.datatable em {
+	margin:0;
+	padding:0;
+	line-height:1.8em;
+	font-style:normal;
+}
+.xhtmlEditorBody table.datatable em.italic {
+	margin:0;
+	padding:0;
+	line-height:1.8em;
+	font-style:italic !important;
+}
+.xhtmlEditorBody table.datatable em.italic * {
+	margin:0;
+	padding:0;
+	line-height:1.8em;
+	font-style:italic !important;
+}
+.xhtmlEditorBody table.datatable em.hilight {
+	margin:0;
+	padding:0;
+	line-height:1.8em;
+}
+.xhtmlEditorBody table.datatable em.underline {
+	margin:0;
+	padding:0;
+	line-height:1.8em;
+	text-decoration:underline;
+}
+
+.xhtmlEditorBody table.datatable span.strike {
+	margin:0;
+	padding:0;
+	line-height:1.8em;
+	text-decoration:line-through;
+}
+
+body.xhtmlEditorBody table.datatable span.super {
+	font-size:0.60em;
+	position:relative;
+	top:-0.4em;
+}
+div.xhtmlEditorBody table.datatable span.super {
+	font-size:0.9em;
+	position:relative;
+	top:-0.4em;
+}
+/*********************************************************/
+body.xhtmlEditorBody table.datatable span.sub {
+	font-size:0.60em;
+	position:relative;
+	bottom:-0.4em;
+}
+div.xhtmlEditorBody table.datatable span.sub {
+	font-size:0.9em;
+	position:relative;
+	bottom:-0.4em;
+}
+
+.xhtmlEditorBody table.datatable sub {
+	font-size:0.75em;
+	position:relative;
+	bottom:-0.5em;
+	line-height:2.6em;
+}
+.xhtmlEditorBody table.datatable sup {
+	font-size:0.75em;
+	position:relative;
+	top:-0.2em;
+	line-height:1.8em;
+}
+.xhtmlEditorBody table.datatable hr {
+	margin: 0 0 1.835em 0;
+	position:relative;
+	bottom:-0.9em;
+	background:none;
+	border:none;
+	border-top:1px solid #000;
+}
+/*************************************************************
+.xhtmlEditorBody table.datatable h1 {
+	margin:0;
+	margin-bottom:0.5em;
+	padding:0;
+	font-size: 2em;
+	line-height:1.27em;
+	color:#223d67;
+	border-bottom:5px solid #425e89;
+}
+.xhtmlEditorBody table.datatable h2 {
+	margin:0;
+	margin-bottom:0.5em;
+	padding:0;
+	font-size: 1.8em;
+	line-height:1.55em;
+	color:#223d67;
+	border-bottom:4px solid #425e89;
+}
+.xhtmlEditorBody table.datatable h3 {
+	margin:0;
+	margin-bottom:10px;
+	padding:0;
+	font-size: 1.5em;
+	line-height:1.95em;
+	color:#223d67;
+	border-bottom:3px solid #425e89;
+}
+.xhtmlEditorBody table.datatable h4 {
+	margin:0;
+	margin-bottom:10px;
+	padding:0;
+	font-size: 1.3em;
+	line-height:2.3em;
+	color:#223d67;
+	border-bottom:2px solid #425e89;
+}
+.xhtmlEditorBody table.datatable h5 {
+	margin:0;
+	margin-bottom:10px;
+	padding:0;
+	font-size: 1.13em;
+	line-height:2.75em;
+	color:#223d67;
+	border-bottom:1px solid #425e89;
+}
+.xhtmlEditorBody table.datatable h6 {
+	margin:0;
+	padding:0;
+	font-size: 1em;
+	line-height:1.92em;
+	color:#223d67;
+	border-bottom:1px solid #425e89;
+}
+/*************************************************************/
+.xhtmlEditorBody table.datatable dl {
+	margin: 0;
+	padding:0;
+	padding-left:2em;
+	line-height:2em;
+}
+.xhtmlEditorBody table.datatable ul {
+	margin: 0;
+	padding:0;
+	padding-left:2em;
+	line-height:1.8em;
+}
+.xhtmlEditorBody table.datatable ol {
+	margin: 0;
+	padding:0;
+	padding-left:2em;
+	line-height:1.8em;
+}
+.xhtmlEditorBody table.datatable li {
+	margin:0;
+	padding:0;
+	line-height:1.8em;
+}
+.xhtmlEditorBody table.datatable li ul {
+	margin:0;
+	padding:0;
+	padding-left:2em;
+	line-height:1.8em;
+}
+.xhtmlEditorBody table.datatable li ol {
+	margin:0;
+	padding:0;
+	padding-left:2em;
+	line-height:1.8em;
+}
+.xhtmlEditorBody table.datatable li dl {
+	margin:0;
+	padding:0;
+	line-height:1.8em;
+}
+.xhtmlEditorBody table.datatable q {
+	margin:0 0.3em;
+	padding:0 0.3em;
+	line-height:1.8em;
+	background:#EFEFEF;
+}
+table.datatable q:before {
+  content:close-quote;
+}
+table.datatable q:after {
+  content: close-quote;
+}
+.xhtmlEditorBody table.datatable blockquote {
+	margin: 0;
+	padding:0;
+	padding-left:38px;
+	line-height:1.8em;
+	background:#EFEFEF url(http://app.springnote.com/images/contextBlockquoteBg.gif) no-repeat 14px 4px;
+}
+
+.xhtmlEditorBody table.datatable img {
+	margin: 0;
+	padding:0;
+	max-width:100%;
+}
+
+.xhtmlEditorBody table.datatable div {
+	margin: 0;
+	padding:0;
+	padding-left:12px;
+	line-height:1.8em;
+	background:#F9F9D8 url(http://app.springnote.com/images/bg/bg_content.gif) repeat;
+}
+.xhtmlEditorBody table.datatable pre {
+	margin:0;
+	padding:0;
+	line-height:1.8em;
+	border-left:2px solid #afa;
+	background-color: #CCC;
+	font-size:1em;
+	background:#F9F9D8;
+}
+.xhtmlEditorBody table.datatable a,
+.xhtmlEditorBody table.datatable a:visited,
+.xhtmlEditorBody table.datatable a:hover {
+	margin:0;
+	padding:0;
+	color: #568942 !important;
+	line-height:1.8em;
+	text-decoration:underline;
+	cursor: pointer !important;
+}
+.xhtmlEditorBody table.datatable a.wiki,
+.xhtmlEditorBody table.datatable a.wiki:visited,
+.xhtmlEditorBody table.datatable a.wiki:hover {
+	margin:0;
+	padding:0;
+	color: #002BB8 !important;
+	line-height:1.8em;
+	text-decoration:underline;
+	cursor: pointer !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.xhtmlEditorBody table {
+	border: 1px solid #bbbbbb !important;
+}
+.xhtmlEditorBody td {
+	border: 1px solid #bbbbbb !important;
+}*/
+/**************************************************************/
+.xhtmlEditorBody dl {
+	margin: 0;
+	padding:0;
+	padding-left:2em;
+	line-height:2.0em;
+}
+.xhtmlEditorBody ul {
+	margin: 0;
+	padding:0;
+	padding-left:2em;
+	line-height:2.0em;
+}
+.xhtmlEditorBody ol.code {
+	margin: 0;
+	padding:0;
+	padding-left:38px;
+	line-height:1.8em;
+	font-family: courier, monospace;
+	background:#EFEFEF url(http://app.springnote.com/images/contextCodeBg.gif) no-repeat 8px 7px;
+}
+
+.xhtmlEditorBody ol.code li {
+	list-style-type: none;
+}
+.xhtmlEditorBody ol {
+	margin: 0;
+	padding:0;
+	padding-left:2em;
+	line-height:2.0em;
+}
+.xhtmlEditorBody li {
+	margin:0;
+	padding:0;
+	line-height:2.0em;
+}
+.xhtmlEditorBody li ul {
+	margin:0;
+	padding:0;
+	padding-left:2em;
+	line-height:2.0em;
+}
+.xhtmlEditorBody li ol {
+	margin:0;
+	padding:0;
+	padding-left:2em;
+	line-height:2.0em;
+}
+.xhtmlEditorBody li dl {
+	margin:0;
+	padding:0;
+	line-height:2.0em;
+}
+.xhtmlEditorBody q {
+	margin:0 0.3em;
+	padding:0 0.3em;
+	line-height:2.0em;
+	background:#EFEFEF;
+}
+q:before {
+  content:close-quote;
+}
+q:after {
+  content: close-quote;
+}
+.xhtmlEditorBody blockquote {
+	margin: 0;
+	padding:0;
+	padding-left:38px;
+	line-height:2.0em;
+	background:#EFEFEF url(http://app.springnote.com/images/contextBlockquoteBg.gif) no-repeat 14px 4px;
+}
+
+.xhtmlEditorBody img {
+	margin: 0;
+	padding:0;
+	max-width:100%;
+}
+.xhtmlEditorBody div {
+	margin: 0;
+	padding:0;
+	padding-left:12px;
+	line-height:2.0em;
+	background:#F9F9D8 url(http://app.springnote.com/images/bg/bg_content.gif) repeat;
+}
+.xhtmlEditorBody pre {
+	margin:0;
+	padding:0;
+	line-height:2.0em;
+	border-left:2px solid #afa;
+	background-color: #CCC;
+	font-size:1em;
+	background:#F9F9D8;
+}
+.xhtmlEditorBody a,
+.xhtmlEditorBody a:visited,
+.xhtmlEditorBody a:hover {
+	margin:0;
+	padding:0;
+	color: #568942 !important;
+	line-height:2.0em;
+	text-decoration:underline;
+	cursor: pointer !important;
+}
+.xhtmlEditorBody a.wiki,
+.xhtmlEditorBody a.wiki:visited,
+.xhtmlEditorBody a.wiki:hover {
+	margin:0;
+	padding:0;
+	color: #002BB8 !important;
+	line-height:2.0em;
+	text-decoration:underline;
+	cursor: pointer !important;
+}
