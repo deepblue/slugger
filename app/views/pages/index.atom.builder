@@ -1,5 +1,5 @@
 atom_feed(:root_url => Site.home_url, :url => formatted_pages_url(:atom)) do |feed|
-  feed.title(Site.site_title)
+  feed.title(Site.title)
   feed.updated(@articles.first ? @articles.first.date_created : Time.now.utc)
 
   @articles.each do |page|
