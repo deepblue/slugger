@@ -9,15 +9,15 @@ protected
     @site =  Site.new
   end
 
-  def render_template(name)
+  def render_template(name, status = :ok)
     @template.view_paths = [@site.theme.root]
     ::Liquid::Template.file_system = ::Liquid::LocalFileSystem.new(File.join(site.theme.root, 'templates'))
     
-    render :file => site.theme.template(name), :layout => 'layout'
+    render :file => site.theme.template(name), :layout => 'layout', :status => status
   end
 
   def render_404
-    render_template('error')
+    render_template('error', :not_found)
   end
   
   def page(page_id)
