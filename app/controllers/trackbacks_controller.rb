@@ -1,6 +1,8 @@
 class TrackbacksController < ApplicationController
   
   def create
+    return render_404 unless site.allow_trackback?
+    
     @page = page(params[:page_id])
     return render_404 unless @page
     

@@ -19,7 +19,7 @@ title: Slugger
 subtitle: Powered by Springnote
 springnote_domain: username.springnote.com
 home_url: http://localhost
-
+# allow_trackback: false
 
 ##############################################
 # Optional Informations
@@ -33,3 +33,4 @@ home_url: http://localhost
 # You should get another me2day account and write the informations here.
 #me2day_user_id_comment: slugger
 #me2day_user_key_comment: 17480382
+

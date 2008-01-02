@@ -1,4 +1,6 @@
 * svn *
+ * (08-01-02) setting 'allow_trackback' added.
+ * (07-12-14) lucid theme added.
  * (07-12-11) Lemonpen support added.
  * (07-12-11) Finally slugger get the THEMEs. you can reuse mephisto's themes with a little effort.
  * (07-12-11) Added /pages/search.

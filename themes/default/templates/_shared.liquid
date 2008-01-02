@@ -11,7 +11,11 @@
 	<div class="entrymeta">
   	<div class="postinfo">
 		<span class="postedby">Posted by admin</span>
-		<span class="filedto">Trackback Address: {{ article || trackback_url }}</span>
+		<span class="filedto">
+			{% if site.allow_trackback? %}
+				Trackback Address: {{ article || trackback_url }}
+			{% endif %}
+		</span>
 	</div>
 	
 	{% unless articles.size == 1 %}
